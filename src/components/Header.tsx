@@ -30,12 +30,12 @@ export function Header() {
       animate={{ y: 0 }}
       className="fixed top-0 left-0 right-0 z-50 bg-transparent"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-14 sm:h-16">
+      <div className="w-full max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-14 sm:h-16 overflow-hidden">
           {/* Logo */}
           <motion.div
             whileHover={{ scale: 1.05 }}
-            className="font-bold text-lg sm:text-xl text-white drop-shadow-lg cursor-pointer"
+            className="font-bold text-lg sm:text-xl text-white drop-shadow-lg cursor-pointer flex-shrink-0"
             onClick={() => handleNavClick('home')}
           >
             Portfolio
@@ -65,22 +65,22 @@ export function Header() {
           </nav>
 
           {/* Theme Toggle & Mobile Menu */}
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center space-x-2 flex-shrink-0">
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={toggleTheme}
-              className="p-3 rounded-full bg-white/10 dark:bg-black/20 backdrop-blur-md text-white dark:text-gray-300 hover:bg-white/20 dark:hover:bg-black/30 transition-all duration-200 touch-manipulation border border-white/20 dark:border-gray-700/30"
+              className="p-2.5 rounded-full bg-white/10 dark:bg-black/20 backdrop-blur-md text-white dark:text-gray-300 hover:bg-white/20 dark:hover:bg-black/30 transition-all duration-200 touch-manipulation border border-white/20 dark:border-gray-700/30"
             >
-              {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
+              {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
             </motion.button>
 
             {/* Mobile menu button */}
             <button
-              className="md:hidden p-3 rounded-full bg-white/10 dark:bg-black/20 backdrop-blur-md text-white dark:text-gray-300 hover:bg-white/20 dark:hover:bg-black/30 transition-all duration-200 touch-manipulation border border-white/20 dark:border-gray-700/30"
+              className="md:hidden p-2.5 rounded-full bg-white/10 dark:bg-black/20 backdrop-blur-md text-white dark:text-gray-300 hover:bg-white/20 dark:hover:bg-black/30 transition-all duration-200 touch-manipulation border border-white/20 dark:border-gray-700/30"
               onClick={() => setIsOpen(!isOpen)}
             >
-              {isOpen ? <X size={22} /> : <Menu size={22} />}
+              {isOpen ? <X size={20} /> : <Menu size={20} />}
             </button>
           </div>
         </div>
@@ -93,9 +93,9 @@ export function Header() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-black/80 dark:bg-gray-900/90 backdrop-blur-xl border-t border-white/20 dark:border-gray-700/50"
+            className="md:hidden bg-black/80 dark:bg-gray-900/90 backdrop-blur-xl border-t border-white/20 dark:border-gray-700/50 overflow-hidden"
           >
-            <div className="px-4 py-3 space-y-1 max-h-[70vh] overflow-y-auto">
+            <div className="px-3 py-3 space-y-1 max-h-[70vh] overflow-y-auto w-full">
               {navigationLinks.map((link) => (
                 <button
                   key={link.name}
