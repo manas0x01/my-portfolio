@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    font-family: 'JetBrains Mono', 'Fira Code', 'Monaco', 'Consolas', 'Courier New', monospace;
+  }
+  
+  /* Mobile optimizations */
+  html {
+    /* Prevent horizontal scroll on mobile */
+    overflow-x: hidden;
+    /* Better touch scrolling */
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  body {
+    /* Prevent horizontal scroll on mobile */
+    overflow-x: hidden;
+    /* Improve text rendering on mobile */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Improve touch interactions */
+  button, a {
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  /* Better focus styles for mobile accessibility */
+  *:focus-visible {
+    outline: 2px solid theme('colors.blue.500');
+    outline-offset: 2px;
+  }
+  
+  /* Custom thin scrollbar styles */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #4a4a4a #e5e5e5;
+  }
+  
+  /* WebKit browsers (Chrome, Safari, Edge) */
+  *::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  
+  *::-webkit-scrollbar-track {
+    background: #f0f0f0;
+    border-radius: 3px;
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    background: #4a4a4a;
+    border-radius: 3px;
+    transition: background 0.2s ease;
+  }
+  
+  *::-webkit-scrollbar-thumb:hover {
+    background: #333333;
+  }
+  
+  /* Dark mode scrollbar */
+  .dark *::-webkit-scrollbar-track {
+    background: #2a2a2a;
+  }
+  
+  .dark *::-webkit-scrollbar-thumb {
+    background: #6a6a6a;
+  }
+  
+  .dark *::-webkit-scrollbar-thumb:hover {
+    background: #888888;
+  }
+  
+  /* Firefox dark mode */
+  .dark * {
+    scrollbar-color: #6a6a6a #2a2a2a;
+  }
+}
