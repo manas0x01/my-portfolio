@@ -35,7 +35,7 @@ export function Header() {
           {/* Logo */}
           <motion.div
             whileHover={{ scale: 1.05 }}
-            className="font-bold text-lg sm:text-xl text-gray-900 dark:text-white cursor-pointer"
+            className="font-bold text-lg sm:text-xl text-white drop-shadow-lg cursor-pointer"
             onClick={() => handleNavClick('home')}
           >
             Portfolio
@@ -47,10 +47,10 @@ export function Header() {
               <button
                 key={link.name}
                 onClick={() => handleNavClick(link.href)}
-                className={`relative px-3 py-2 text-sm font-medium transition-colors duration-200 ${
+                className={`relative px-3 py-2 text-sm font-medium transition-all duration-200 drop-shadow-sm ${
                   activeSection === link.href
-                    ? 'text-blue-600 dark:text-blue-400'
-                    : 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400'
+                    ? 'text-blue-300 dark:text-blue-400'
+                    : 'text-white/90 dark:text-gray-300 hover:text-blue-300 dark:hover:text-blue-400'
                 }`}
               >
                 {link.name}
@@ -65,22 +65,22 @@ export function Header() {
           </nav>
 
           {/* Theme Toggle & Mobile Menu */}
-          <div className="flex items-center space-x-2 sm:space-x-4">
+          <div className="flex items-center space-x-3">
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={toggleTheme}
-              className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors touch-manipulation"
+              className="p-3 rounded-full bg-white/10 dark:bg-black/20 backdrop-blur-md text-white dark:text-gray-300 hover:bg-white/20 dark:hover:bg-black/30 transition-all duration-200 touch-manipulation border border-white/20 dark:border-gray-700/30"
             >
-              {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
+              {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
             </motion.button>
 
             {/* Mobile menu button */}
             <button
-              className="md:hidden p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors touch-manipulation"
+              className="md:hidden p-3 rounded-full bg-white/10 dark:bg-black/20 backdrop-blur-md text-white dark:text-gray-300 hover:bg-white/20 dark:hover:bg-black/30 transition-all duration-200 touch-manipulation border border-white/20 dark:border-gray-700/30"
               onClick={() => setIsOpen(!isOpen)}
             >
-              {isOpen ? <X size={20} /> : <Menu size={20} />}
+              {isOpen ? <X size={22} /> : <Menu size={22} />}
             </button>
           </div>
         </div>
@@ -93,17 +93,17 @@ export function Header() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border-t border-gray-200 dark:border-gray-700"
+            className="md:hidden bg-black/80 dark:bg-gray-900/90 backdrop-blur-xl border-t border-white/20 dark:border-gray-700/50"
           >
             <div className="px-4 py-3 space-y-1 max-h-[70vh] overflow-y-auto">
               {navigationLinks.map((link) => (
                 <button
                   key={link.name}
                   onClick={() => handleNavClick(link.href)}
-                  className={`block w-full text-left px-4 py-3 rounded-lg text-base font-medium transition-colors touch-manipulation ${
+                  className={`block w-full text-left px-4 py-3 rounded-lg text-base font-medium transition-all duration-200 touch-manipulation ${
                     activeSection === link.href
-                      ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20'
-                      : 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-800'
+                      ? 'text-blue-300 dark:text-blue-400 bg-white/10 dark:bg-blue-900/30 backdrop-blur-sm'
+                      : 'text-white/90 dark:text-gray-300 hover:text-blue-300 dark:hover:text-blue-400 hover:bg-white/10 dark:hover:bg-gray-800/50'
                   }`}
                 >
                   {link.name}
