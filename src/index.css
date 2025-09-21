@@ -15,6 +15,9 @@
     overflow-x: hidden;
     /* Better touch scrolling */
     -webkit-overflow-scrolling: touch;
+    /* Ensure full width */
+    width: 100%;
+    max-width: 100%;
   }
   
   body {
@@ -23,6 +26,15 @@
     /* Improve text rendering on mobile */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    /* Ensure full width */
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  /* Prevent any element from causing horizontal scroll */
+  * {
+    box-sizing: border-box;
+    max-width: 100%;
   }
   
   /* Improve touch interactions */

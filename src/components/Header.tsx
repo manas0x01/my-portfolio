@@ -28,10 +28,10 @@ export function Header() {
     <motion.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className="fixed top-0 left-0 right-0 z-50 bg-transparent"
+      className="fixed top-0 left-0 right-0 z-50 bg-transparent w-full"
     >
-      <div className="w-full max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-14 sm:h-16 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div className="flex justify-between items-center h-14 sm:h-16 w-full">
           {/* Logo */}
           <motion.div
             whileHover={{ scale: 1.05 }}
@@ -42,7 +42,7 @@ export function Header() {
           </motion.div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-4 lg:space-x-8">
+          <nav className="hidden md:flex space-x-4 lg:space-x-8 flex-1 justify-center">
             {navigationLinks.map((link) => (
               <button
                 key={link.name}
@@ -64,20 +64,21 @@ export function Header() {
             ))}
           </nav>
 
-          {/* Theme Toggle & Mobile Menu */}
-          <div className="flex items-center space-x-2 flex-shrink-0">
+          {/* Desktop Theme Toggle & Mobile Menu */}
+          <div className="flex items-center justify-end flex-shrink-0">
+            {/* Desktop Theme Toggle */}
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={toggleTheme}
-              className="p-2.5 rounded-full bg-white/10 dark:bg-black/20 backdrop-blur-md text-white dark:text-gray-300 hover:bg-white/20 dark:hover:bg-black/30 transition-all duration-200 touch-manipulation border border-white/20 dark:border-gray-700/30"
+              className="hidden md:flex p-3 rounded-full bg-white/10 dark:bg-black/20 backdrop-blur-md text-white dark:text-gray-300 hover:bg-white/20 dark:hover:bg-black/30 transition-all duration-200 border border-white/20 dark:border-gray-700/30 mr-4"
             >
-              {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
+              {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
             </motion.button>
 
             {/* Mobile menu button */}
             <button
-              className="md:hidden p-2.5 rounded-full bg-white/10 dark:bg-black/20 backdrop-blur-md text-white dark:text-gray-300 hover:bg-white/20 dark:hover:bg-black/30 transition-all duration-200 touch-manipulation border border-white/20 dark:border-gray-700/30"
+              className="md:hidden p-3 rounded-full bg-white/10 dark:bg-black/20 backdrop-blur-md text-white dark:text-gray-300 hover:bg-white/20 dark:hover:bg-black/30 transition-all duration-200 border border-white/20 dark:border-gray-700/30"
               onClick={() => setIsOpen(!isOpen)}
             >
               {isOpen ? <X size={20} /> : <Menu size={20} />}
@@ -93,9 +94,9 @@ export function Header() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-black/80 dark:bg-gray-900/90 backdrop-blur-xl border-t border-white/20 dark:border-gray-700/50 overflow-hidden"
+            className="md:hidden bg-black/80 dark:bg-gray-900/90 backdrop-blur-xl border-t border-white/20 dark:border-gray-700/50 w-full overflow-hidden"
           >
-            <div className="px-3 py-3 space-y-1 max-h-[70vh] overflow-y-auto w-full">
+            <div className="px-4 py-3 space-y-2 max-h-[70vh] overflow-y-auto">
               {navigationLinks.map((link) => (
                 <button
                   key={link.name}
@@ -109,6 +110,22 @@ export function Header() {
                   {link.name}
                 </button>
               ))}
+              
+              {/* Theme Toggle in Mobile Menu */}
+              <div className="pt-4 border-t border-white/10 dark:border-gray-700/30 mt-4">
+                <button
+                  onClick={toggleTheme}
+                  className="flex items-center justify-between w-full px-4 py-3 rounded-lg text-base font-medium text-white/90 dark:text-gray-300 hover:bg-white/10 dark:hover:bg-gray-800/50 transition-all duration-200 touch-manipulation"
+                >
+                  <span>Theme</span>
+                  <div className="flex items-center space-x-2">
+                    <span className="text-sm opacity-75">
+                      {theme === 'light' ? 'Light' : 'Dark'}
+                    </span>
+                    {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
+                  </div>
+                </button>
+              </div>
             </div>
           </motion.div>
         )}

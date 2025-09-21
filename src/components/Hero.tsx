@@ -59,7 +59,7 @@ export function Hero() {
   }, [displayText, isDeleting, currentRoleIndex]);
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gray-900">
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gray-900 pt-16 sm:pt-20">
       {/* Dynamic Tech Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-blue-900/20 to-purple-900/30" />
       
@@ -256,9 +256,9 @@ export function Hero() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-[80vh] py-20 sm:py-16 lg:py-8 pt-24 sm:pt-20 lg:pt-16">
+        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-[80vh] py-8 lg:py-0">
           {/* Profile picture - centered on mobile, left on desktop */}
-          <div className="flex justify-center lg:justify-start order-1 lg:order-1 mt-4 sm:mt-2 lg:mt-0">
+          <div className="flex justify-center lg:justify-start order-1 lg:order-1">
             <motion.div
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
