@@ -35,7 +35,7 @@ export function Header() {
           {/* Logo */}
           <motion.div
             whileHover={{ scale: 1.05 }}
-            className="font-bold text-lg sm:text-xl text-gray-900 dark:text-white cursor-pointer"
+            className="font-bold text-lg sm:text-xl text-white cursor-pointer"
             onClick={() => handleNavClick('home')}
           >
             Portfolio

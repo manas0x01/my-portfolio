@@ -272,18 +272,7 @@ export function Hero() {
                   transition={{ duration: 0.5, delay: 0.4 }}
                   src={profileImage}
                   alt="Profile"
-                  className="w-full h-full object-cover rounded-full border-2 sm:border-4 border-white dark:border-gray-700 shadow-xl sm:shadow-2xl"
-                />
-                {/* Simplified animations for better mobile performance */}
-                <motion.div
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                  className="absolute -inset-1 sm:-inset-2 rounded-full border border-dashed sm:border-2 border-blue-400/50"
-                />
-                <motion.div
-                  animate={{ rotate: -360 }}
-                  transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-                  className="absolute -inset-2 sm:-inset-4 rounded-full border border-dotted border-purple-400/30"
+                  className="w-full h-full object-cover rounded-full shadow-xl sm:shadow-2xl"
                 />
               </div>
             </motion.div>
