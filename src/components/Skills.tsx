@@ -1,48 +1,68 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+﻿import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { 
+  Code2, 
+  Database, 
+  Cpu, 
+  Brain, 
+  Eye, 
+  BarChart3, 
+  Smartphone, 
+  Cloud, 
+  GitBranch, 
+  Server,
+  Globe,
+  Layers,
+  Settings,
+  Zap,
+  Box,
+  Monitor,
+  FileCode,
+  Palette,
+  Activity
+} from 'lucide-react';
 import { skills } from '../data/portfolioData';
 
-// Technology icons mapping
-const techIcons: Record<string, string> = {
+// Professional technology icons mapping using Lucide React icons
+const techIcons: Record<string, JSX.Element> = {
   // ML/AI Technologies
-  'Python': '🐍',
-  'TensorFlow': '🧠',
-  'PyTorch': '🔥',
-  'Scikit-learn': '🤖',
-  'OpenCV': '👁️',
-  'Keras': '⚡',
-  'Pandas': '🐼',
-  'NumPy': '📊',
-  'Matplotlib': '📈',
-  'Jupyter': '📓',
+  'Python': <Code2 className="w-full h-full text-blue-600" />,
+  'TensorFlow': <Brain className="w-full h-full text-orange-500" />,
+  'PyTorch': <Zap className="w-full h-full text-red-500" />,
+  'Scikit-learn': <Activity className="w-full h-full text-orange-600" />,
+  'OpenCV': <Eye className="w-full h-full text-green-600" />,
+  'Keras': <Cpu className="w-full h-full text-red-600" />,
+  'Pandas': <BarChart3 className="w-full h-full text-blue-700" />,
+  'NumPy': <BarChart3 className="w-full h-full text-blue-500" />,
+  'Matplotlib': <BarChart3 className="w-full h-full text-green-500" />,
+  'Jupyter': <FileCode className="w-full h-full text-orange-500" />,
   
   // Full Stack Technologies
-  'React': '⚛️',
-  'JavaScript': '💛',
-  'TypeScript': '💙',
-  'Node.js': '💚',
-  'GO': '🔷',
-  'HTML': '🧡',
-  'CSS': '💜',
-  'React Native': '📱',
-  'Next.js': '▲',
+  'React': <Code2 className="w-full h-full text-blue-400" />,
+  'JavaScript': <FileCode className="w-full h-full text-yellow-500" />,
+  'TypeScript': <FileCode className="w-full h-full text-blue-600" />,
+  'Node.js': <Server className="w-full h-full text-green-500" />,
+  'GO': <Code2 className="w-full h-full text-blue-500" />,
+  'HTML': <Globe className="w-full h-full text-orange-500" />,
+  'CSS': <Palette className="w-full h-full text-blue-500" />,
+  'React Native': <Smartphone className="w-full h-full text-blue-400" />,
+  'Next.js': <Layers className="w-full h-full text-black dark:text-white" />,
   
   // Databases
-  'MySQL': '🐬',
-  'MongoDB': '🍃',
-  'Redis': '🔴',
+  'MySQL': <Database className="w-full h-full text-blue-600" />,
+  'MongoDB': <Database className="w-full h-full text-green-600" />,
+  'Redis': <Database className="w-full h-full text-red-500" />,
   
   // Tools & Technologies
-  'Git': '📂',
-  'Docker': '🐳',
-  'AWS': '☁️',
-  'VS Code': '💻',
-  'Postman': '📮',
-  'Firebase': '🔥',
-  'REST API': '🔗',
-  'Webpack': '📦',
-  'FAST API': '🔗'
+  'Git': <GitBranch className="w-full h-full text-orange-600" />,
+  'Docker': <Box className="w-full h-full text-blue-500" />,
+  'AWS': <Cloud className="w-full h-full text-orange-500" />,
+  'VS Code': <Monitor className="w-full h-full text-blue-600" />,
+  'Postman': <Globe className="w-full h-full text-orange-500" />,
+  'Firebase': <Zap className="w-full h-full text-orange-500" />,
+  'REST API': <Server className="w-full h-full text-purple-500" />,
+  'Webpack': <Settings className="w-full h-full text-blue-500" />,
+  'FAST API': <Server className="w-full h-full text-green-500" />
 };
 
 const allTechStack = [
@@ -165,129 +185,48 @@ export function Skills() {
             Technologies I Work With
           </h3>
           
-          {/* Grid Layout for Better Alignment */}
-          <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 gap-4 lg:gap-8 max-w-6xl mx-auto mb-12">
+          {/* Updated Grid Layout - 4-5 icons per row */}
+          <div className="grid grid-cols-4 xs:grid-cols-5 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 gap-3 sm:gap-4 lg:gap-8 max-w-6xl mx-auto mb-12">
             {allTechStack.map((tech, index) => (
               <motion.div
                 key={tech}
-                initial={{ opacity: 0, scale: 0, y: 50 }}
-                animate={iconsInView ? { 
-                  opacity: 1, 
-                  scale: 1, 
-                  y: 0,
-                } : {}}
+                initial={{ opacity: 0 }}
+                animate={iconsInView ? { opacity: 1 } : {}}
                 transition={{ 
-                  delay: index * 0.03,
-                  type: "spring",
-                  stiffness: 100,
-                  damping: 8
+                  delay: index * 0.02,
+                  duration: 0.3
                 }}
                 className="flex flex-col items-center justify-center group cursor-pointer"
-                whileHover={{ 
-                  scale: 1.15,
-                  y: -5,
-                  transition: { 
-                    type: "spring", 
-                    stiffness: 400,
-                    damping: 10
-                  }
-                }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.98 }}
               >
-                <motion.div
-                  className="relative flex items-center justify-center w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-2xl bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-800 dark:to-gray-700 shadow-lg group-hover:shadow-xl transition-all duration-300"
-                  animate={{
-                    rotate: [0, 2, 0, -2, 0],
-                  }}
-                  transition={{
-                    duration: 4 + (index % 3),
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    delay: index * 0.1
-                  }}
-                >
-                  {/* Animated Border */}
-                  <motion.div 
-                    className="absolute inset-0 rounded-2xl border-2 border-transparent bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                    style={{ padding: '2px' }}
-                    animate={{
-                      rotate: 360
-                    }}
-                    transition={{
-                      duration: 3,
-                      repeat: Infinity,
-                      ease: "linear"
-                    }}
-                  >
-                    <div className="w-full h-full bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-800 dark:to-gray-700 rounded-2xl" />
-                  </motion.div>
+                <div className="flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-2xl bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-800 dark:to-gray-700 shadow-md hover:shadow-lg transition-all duration-200 hover:border-2 hover:border-blue-400/30">
+                  
+                  {/* Professional Icon - Mobile Optimized */}
+                  <div className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 flex items-center justify-center">
+                    {techIcons[tech] || <Settings className="w-full h-full text-gray-500" />}
+                  </div>
+                </div>
 
-                  {/* Icon */}
-                  <motion.div 
-                    className="relative z-10 text-4xl md:text-5xl lg:text-6xl filter drop-shadow-sm group-hover:drop-shadow-lg transition-all duration-300"
-                    animate={{
-                      y: [0, -3, 0],
-                    }}
-                    transition={{
-                      duration: 2 + (index % 2),
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                      delay: index * 0.2
-                    }}
-                  >
-                    {techIcons[tech] || '⚙️'}
-                  </motion.div>
-
-                  {/* Glow Effect */}
-                  <motion.div
-                    className="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-400/20 via-purple-500/20 to-pink-500/20 opacity-0 group-hover:opacity-100 blur-sm transition-opacity duration-300"
-                    animate={{
-                      scale: [1, 1.05, 1],
-                    }}
-                    transition={{
-                      duration: 2,
-                      repeat: Infinity,
-                      ease: "easeInOut"
-                    }}
-                  />
-                </motion.div>
-
-                {/* Technology Name */}
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={iconsInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ delay: 0.5 + index * 0.03 }}
-                  className="mt-3 text-center"
-                >
-                  <span className="text-xs md:text-sm font-medium text-gray-600 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white transition-colors duration-300">
+                {/* Technology Name - Always visible, Mobile Optimized */}
+                <div className="mt-1.5 sm:mt-2 text-center">
+                  <span className="text-[10px] xs:text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white transition-colors duration-200 leading-tight">
                     {tech}
                   </span>
-                </motion.div>
-
-                {/* Hover Ripple Effect */}
-                <motion.div
-                  className="absolute inset-0 rounded-2xl bg-blue-400/10 opacity-0 group-hover:opacity-100"
-                  initial={{ scale: 0 }}
-                  whileHover={{ 
-                    scale: 1.2,
-                    opacity: [0, 0.3, 0],
-                    transition: { duration: 0.6 }
-                  }}
-                />
+                </div>
               </motion.div>
             ))}
           </div>
 
-          {/* Additional Animated Elements */}
-          <div className="flex flex-wrap justify-center gap-4 mt-12">
-            {['ML', 'AI', 'Deep Learning', 'Computer Vision', 'Neural Networks', 'Full Stack', 'React Native'].map((tag, index) => (
+          {/* Simplified Tags */}
+          <div className="flex flex-wrap justify-center gap-3 mt-8">
+            {['Machine Learning', 'AI & Deep Learning', 'Full Stack Development', 'Computer Vision', 'Data Science'].map((tag, index) => (
               <motion.div
                 key={tag}
-                initial={{ opacity: 0, scale: 0 }}
-                animate={iconsInView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ delay: 0.5 + index * 0.1 }}
-                whileHover={{ scale: 1.1 }}
-                className="bg-gradient-to-r from-blue-500 to-purple-500 text-white px-4 py-2 rounded-full text-sm font-medium"
+                initial={{ opacity: 0 }}
+                animate={iconsInView ? { opacity: 1 } : {}}
+                transition={{ delay: 0.3 + index * 0.1 }}
+                className="bg-gradient-to-r from-blue-500 to-purple-500 text-white px-4 py-2 rounded-full text-sm font-medium hover:shadow-md transition-shadow duration-200"
               >
                 {tag}
               </motion.div>

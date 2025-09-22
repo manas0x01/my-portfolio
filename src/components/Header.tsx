@@ -28,29 +28,29 @@ export function Header() {
     <motion.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className="fixed top-0 left-0 right-0 z-50 bg-transparent w-full"
+      className="fixed top-0 left-0 right-0 z-50 bg-transparent"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="flex justify-between items-center h-14 sm:h-16 w-full">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-14 sm:h-16">
           {/* Logo */}
           <motion.div
             whileHover={{ scale: 1.05 }}
-            className="font-bold text-lg sm:text-xl text-white drop-shadow-lg cursor-pointer flex-shrink-0"
+            className="font-bold text-lg sm:text-xl text-gray-900 dark:text-white cursor-pointer"
             onClick={() => handleNavClick('home')}
           >
             Portfolio
           </motion.div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-4 lg:space-x-8 flex-1 justify-center">
+          <nav className="hidden md:flex space-x-4 lg:space-x-8">
             {navigationLinks.map((link) => (
               <button
                 key={link.name}
                 onClick={() => handleNavClick(link.href)}
-                className={`relative px-3 py-2 text-sm font-medium transition-all duration-200 drop-shadow-sm ${
+                className={`relative px-3 py-2 text-sm font-medium transition-colors duration-200 ${
                   activeSection === link.href
-                    ? 'text-blue-300 dark:text-blue-400'
-                    : 'text-white/90 dark:text-gray-300 hover:text-blue-300 dark:hover:text-blue-400'
+                    ? 'text-blue-600 dark:text-blue-400'
+                    : 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400'
                 }`}
               >
                 {link.name}
@@ -64,21 +64,20 @@ export function Header() {
             ))}
           </nav>
 
-          {/* Desktop Theme Toggle & Mobile Menu */}
-          <div className="flex items-center justify-end flex-shrink-0">
-            {/* Desktop Theme Toggle */}
+          {/* Theme Toggle & Mobile Menu */}
+          <div className="flex items-center space-x-2 sm:space-x-4">
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={toggleTheme}
-              className="hidden md:flex p-3 rounded-full bg-white/10 dark:bg-black/20 backdrop-blur-md text-white dark:text-gray-300 hover:bg-white/20 dark:hover:bg-black/30 transition-all duration-200 border border-white/20 dark:border-gray-700/30 mr-4"
+              className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors touch-manipulation"
             >
-              {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
+              {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
             </motion.button>
 
             {/* Mobile menu button */}
             <button
-              className="md:hidden p-3 rounded-full bg-white/10 dark:bg-black/20 backdrop-blur-md text-white dark:text-gray-300 hover:bg-white/20 dark:hover:bg-black/30 transition-all duration-200 border border-white/20 dark:border-gray-700/30"
+              className="md:hidden p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors touch-manipulation"
               onClick={() => setIsOpen(!isOpen)}
             >
               {isOpen ? <X size={20} /> : <Menu size={20} />}
@@ -94,38 +93,22 @@ export function Header() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-black/80 dark:bg-gray-900/90 backdrop-blur-xl border-t border-white/20 dark:border-gray-700/50 w-full overflow-hidden"
+            className="md:hidden bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border-t border-gray-200 dark:border-gray-700"
           >
-            <div className="px-4 py-3 space-y-2 max-h-[70vh] overflow-y-auto">
+            <div className="px-4 py-3 space-y-1 max-h-[70vh] overflow-y-auto">
               {navigationLinks.map((link) => (
                 <button
                   key={link.name}
                   onClick={() => handleNavClick(link.href)}
-                  className={`block w-full text-left px-4 py-3 rounded-lg text-base font-medium transition-all duration-200 touch-manipulation ${
+                  className={`block w-full text-left px-4 py-3 rounded-lg text-base font-medium transition-colors touch-manipulation ${
                     activeSection === link.href
-                      ? 'text-blue-300 dark:text-blue-400 bg-white/10 dark:bg-blue-900/30 backdrop-blur-sm'
-                      : 'text-white/90 dark:text-gray-300 hover:text-blue-300 dark:hover:text-blue-400 hover:bg-white/10 dark:hover:bg-gray-800/50'
+                      ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20'
+                      : 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-800'
                   }`}
                 >
                   {link.name}
                 </button>
               ))}
-              
-              {/* Theme Toggle in Mobile Menu */}
-              <div className="pt-4 border-t border-white/10 dark:border-gray-700/30 mt-4">
-                <button
-                  onClick={toggleTheme}
-                  className="flex items-center justify-between w-full px-4 py-3 rounded-lg text-base font-medium text-white/90 dark:text-gray-300 hover:bg-white/10 dark:hover:bg-gray-800/50 transition-all duration-200 touch-manipulation"
-                >
-                  <span>Theme</span>
-                  <div className="flex items-center space-x-2">
-                    <span className="text-sm opacity-75">
-                      {theme === 'light' ? 'Light' : 'Dark'}
-                    </span>
-                    {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
-                  </div>
-                </button>
-              </div>
             </div>
           </motion.div>
         )}

@@ -59,7 +59,7 @@ export function Hero() {
   }, [displayText, isDeleting, currentRoleIndex]);
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gray-900 pt-16 sm:pt-20">
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gray-900">
       {/* Dynamic Tech Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-blue-900/20 to-purple-900/30" />
       
@@ -295,7 +295,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight"
+              className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight"
             >
               I am{' '}
               <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent block sm:inline mt-2 sm:mt-0">
@@ -307,7 +307,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-300 h-8 sm:h-10 md:h-12"
+              className="text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-300 h-7 xs:h-8 sm:h-10 md:h-12"
             >
               <span>{displayText}</span>
               <span className="animate-pulse">|</span>
@@ -326,24 +326,24 @@ export function Hero() {
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.5 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+              className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start"
             >
               <motion.button
                 onClick={handleResumeDownload}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg shadow-lg transition-colors text-sm sm:text-base"
+                className="inline-flex items-center justify-center px-5 sm:px-6 md:px-8 py-3 sm:py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg shadow-lg transition-colors text-sm sm:text-base"
               >
-                <Download className="mr-2" size={18} />
+                <Download className="mr-2" size={16} />
                 Download Resume
               </motion.button>
               <motion.button
                 onClick={() => smoothScrollTo('contact')}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-transparent border-2 border-blue-400 text-blue-400 font-semibold rounded-lg hover:bg-blue-600 hover:text-white transition-all text-sm sm:text-base"
+                className="inline-flex items-center justify-center px-5 sm:px-6 md:px-8 py-3 sm:py-4 bg-transparent border-2 border-blue-400 text-blue-400 font-semibold rounded-lg hover:bg-blue-600 hover:text-white transition-all text-sm sm:text-base"
               >
-                <Mail className="mr-2" size={18} />
+                <Mail className="mr-2" size={16} />
                 Contact Me
               </motion.button>
             </motion.div>

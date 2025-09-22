@@ -111,7 +111,7 @@ export function Volunteering() {
             <div className="text-sm text-gray-600 dark:text-gray-400">Activities</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl font-bold text-purple-600 dark:text-purple-400 mb-2">4+</div>
+            <div className="text-3xl font-bold text-purple-600 dark:text-purple-400 mb-2">14+</div>
             <div className="text-sm text-gray-600 dark:text-gray-400">Leadership Roles</div>
           </div>
           <div className="text-center">
