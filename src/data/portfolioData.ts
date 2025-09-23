@@ -128,6 +128,19 @@ export const experience = [
   },
   {
     id: 2,
+    title: "COO at Saivyy Technologies Pvt. Ltd.",
+    company: "AI Based Company",
+    duration: "2025-Present",
+    description: "Handling operations, meetings and projects coming up in the company within my tech expertise",
+    responsibilities: [
+      "Developed and helped in implementation of Myra AI",
+      "Analyzed large datasets to extract meaningful insights",
+      "Collaborated with founder and the team for AI projects",
+      "Pitched the products at many technical events"
+    ]
+  },
+  {
+    id: 3,
     title: "Product Developer Intern",
     company: "Tech Company",
     duration: "2025",
@@ -140,7 +153,7 @@ export const experience = [
     ]
   },
   {
-    id: 3,
+    id: 4,
     title: "Research Intern",
     company: "Saptkrishi Pvt Ltd",
     duration: "2024",
@@ -241,5 +254,12 @@ export const volunteeringAndExtracurricular = [
     organization: "Internshala Student Partner Program",
     duration: "2023",
     description: "Completed training program as Internshala Student Partner, promoting internship opportunities and career development."
-  }
+  },
+  {
+    id: 10,
+    title: "Vice Chairperson",
+    organization: "ACM GU Chapter",
+    duration: "2025-Present",
+    description: "Led technical initiatives and volunteer engagement activities for ACM GU Chapter"
+  },
 ];
