@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Download, Mail, ChevronDown } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
 import { smoothScrollTo } from '../utils/smoothScroll';
-import profileImage from '../assets/images/manas.jpg';
+import profileImage from '../assets/images/manasformal.jpg';
 
 const roles = [personalInfo.role, "Machine Learning Engineer", "Deep Learning Learner", "Problem Solver"];
 
